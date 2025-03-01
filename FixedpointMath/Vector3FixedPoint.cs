@@ -32,9 +32,11 @@
 		public static Vector3FixedPoint Up = new Vector3FixedPoint(0, 1, 0);
 		public static Vector3FixedPoint Forward = new Vector3FixedPoint(0, 0, 1);
 
+#if !UNITY_64
 		public Vector3FixedPoint()
 		{
 		}
+#endif
 
 		public Vector3FixedPoint(FixedPoint x, FixedPoint y, FixedPoint z)
 		{
