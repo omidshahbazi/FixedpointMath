@@ -1,4 +1,8 @@
-﻿namespace FixedpointMath
+﻿#if UNITY_64
+using UnityEngine;
+#endif
+
+namespace FixedpointMath
 {
 	public struct Vector3FixedPoint
 	{
@@ -44,6 +48,15 @@
 			Y = y;
 			Z = z;
 		}
+
+#if UNITY_64
+		public Vector3FixedPoint(Vector3 value)
+		{
+			X = value.x;
+			Y = value.y;
+			Z = value.z;
+		}
+#endif
 
 		public void Normalize()
 		{
@@ -101,5 +114,17 @@
 		{
 			return !(a == b);
 		}
+
+#if UNITY_64
+		public static implicit operator Vector3(Vector3FixedPoint value)
+		{
+			return new Vector3(value.X, value.Y, value.Z);
+		}
+
+		public static implicit operator Vector3FixedPoint(Vector3 value)
+		{
+			return new Vector3FixedPoint(value);
+		}
+#endif
 	}
 }
