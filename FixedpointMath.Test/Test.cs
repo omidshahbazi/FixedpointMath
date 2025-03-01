@@ -1,4 +1,5 @@
-﻿[assembly: Parallelize(Scope = ExecutionScope.MethodLevel)]
+﻿#if !UNITY_64
+[assembly: Parallelize(Scope = ExecutionScope.MethodLevel)]
 
 namespace FixedpointMath.Test
 {
@@ -50,3 +51,4 @@ namespace FixedpointMath.Test
 		}
 	}
 }
+#endif
